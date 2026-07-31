@@ -3,13 +3,16 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "dev": "vite",
         "build": "vite build",
         "build:ssr": "vite build && vite build --ssr",
-        "dev": "vite",
-        "format": "prettier --write resources/",
-        "format:check": "prettier --check resources/",
+
         "lint": "eslint . --fix",
         "lint:check": "eslint .",
+
+        "format": "prettier --write resources/",
+        "format:check": "prettier --check resources/",
+
         "types:check": "vue-tsc --noEmit"
     },
     "devDependencies": {
