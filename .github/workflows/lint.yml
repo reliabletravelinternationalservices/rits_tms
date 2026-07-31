@@ -1,4 +1,4 @@
-name: Tests
+name: Lint
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  tests:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,5 +35,14 @@ jobs:
       - name: Setup Application
         run: composer setup
 
-      - name: Run Tests
-        run: php artisan test
+      - name: Check PHP Code Style (Pint)
+        run: ./vendor/bin/pint --test
+
+      - name: Check ESLint
+        run: npm run lint
+
+      - name: Check Prettier Formatting
+        run: npm run format:check
+
+      - name: Check TypeScript
+        run: npm run types:check

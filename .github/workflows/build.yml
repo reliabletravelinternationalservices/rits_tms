@@ -1,4 +1,4 @@
-name: Tests
+name: Build
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  tests:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,5 +35,5 @@ jobs:
       - name: Setup Application
         run: composer setup
 
-      - name: Run Tests
-        run: php artisan test
+      - name: Build Frontend
+        run: npm run build
